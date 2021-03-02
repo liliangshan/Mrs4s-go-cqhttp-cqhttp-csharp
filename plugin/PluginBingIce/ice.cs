@@ -311,16 +311,7 @@ namespace PluginBingIce
                     if (message != "")
                     {
                         OnLog(message);
-                        if (TxtAi.IndexOf(e.group_id.ToString()) > -1)
-                        {
-                            long conclusionType = BaiduAI.TextCensor("hxKr9jlWHfBKaaTIK9OqXqMn", "0Yx640W9OImwuwUOgMTQRja7d9wj8ux3", message);
-                            OnLog(conclusionType.ToString());
-                            if (conclusionType != 1)
-                            {
-                                Cluster.Send(e.group_id, "[CQ:at,qq=" + e.user_id + "]您的内容不合规，请发正规内容");
-                                return;
-                            }
-                        }
+                        
                         
                         RevMessageEvent zj = null;
                        if(message.Length>2&& message.Substring(0,2)=="自检"&& Robot.Admin.Contains(e.user_id.ToString()))
