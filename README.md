@@ -1,5 +1,5 @@
 # Mrs4s-go-cqhttp-cqhttp-csharp
-Bot信息：
+# Bot信息：
         /**Bot号**/
         public static uint id { get; set; }
         /**Bot密码**/
@@ -30,11 +30,11 @@ Bot信息：
         public static int WebUi { get; set; }
 
 
-事件
-Event.OnMessage(string sender, RevMessageEvent e)  接收信息
-RevMessageEvent
-public class RevMessageEvent
-    {
+# 事件：
+        Event.OnMessage(string sender, RevMessageEvent e)  接收信息
+        RevMessageEvent
+        public class RevMessageEvent
+        {
         public uint target_id;
         public string honor_type { get; set; }
         public object comment { get; set; }
@@ -96,7 +96,7 @@ public class RevMessageEvent
 
     }
     
-    支持API：
+# 支持API：
     群组：Cluster
     发消息 long  Cluster.Send(uint 群组ID,string 内容)
     群列表 GroupInfo[] Cluster.GroupInfo[] Get(bool 是否强制刷新)
@@ -111,13 +111,13 @@ public class RevMessageEvent
     邀请我入群处理 int Cluster.ClusterInviteMe(string 邀请flag标志, string 结果：0为同意，其他拒绝)
     成员加群处理 int Cluster.ClusterRequestJoin(string 邀请flag标志, string 结果：0为同意，其他拒绝)
     
-    好友：Friend
+# 好友：Friend
     好友消息 Friend.Send(uint 好友ID, string 内容);
     好友列表 Friend.FriendInfo[] Get(bool reload = 是否强制刷新)
     好友信息 Friend.FriendInfo FriendById(uint 好友ID)
     好友申请处理 int Friend.Add(string 邀请flag标志, string 结果：0为同意，其他拒绝)
     
-    数据库：DbBase
+# 数据库：DbBase
     连接信息 IDbConnection Conn
     创建连接 DbBase(string Sqlite字符串)
     创建连接 DbBase(string 字符串, DBType 数据库类型枚举)
@@ -132,7 +132,7 @@ public class RevMessageEvent
     DbParameter生成 IDbDataParameter Parameter(string 名称, object 值)
     
     
-    公共：Static
+# 公共：Static
     应用路径 string Static.Path
     应用图标 System.Drawing.Icon Static.icon
     提交数据 string Static.Post(string 网址, string 数据)
@@ -142,7 +142,7 @@ public class RevMessageEvent
     地址转码 string Static.UrlEncode(string 字符串)
     当前时间缀 long Static.TimeStamp()
     
-    视频处理：ffmpeg
+# 视频处理：ffmpeg
         /**剪辑时长**/
         public int len { get;set;}
         /**水印文字**/
@@ -153,7 +153,7 @@ public class RevMessageEvent
         public bool RunText { get; set; }
         
       视频处理(返回处理后的路径)  string Start(string 视频路径)
-        
-   JSON处理：JsonHelper
-   JSON字符串转JSON对象 T JsonHelper.JsonHelper<T>(string json字符串)
-   JSON转JSON字符串 string JsonHelper.SerializeObject(object JSON对象)     
+
+# JSON处理：JsonHelper
+        JSON字符串转JSON对象 T JsonHelper.JsonHelper<T>(string json字符串)
+        JSON转JSON字符串 string JsonHelper.SerializeObject(object JSON对象)     
