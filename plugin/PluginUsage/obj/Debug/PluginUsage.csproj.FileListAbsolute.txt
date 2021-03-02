@@ -1,0 +1,6 @@
+C:\Users\lilia\source\repos\PluginUsage\bin\Debug\PluginUsage.dll
+C:\Users\lilia\source\repos\PluginUsage\bin\Debug\PluginUsage.pdb
+C:\Users\lilia\source\repos\PluginUsage\obj\Debug\PluginUsage.csprojAssemblyReference.cache
+C:\Users\lilia\source\repos\PluginUsage\obj\Debug\PluginUsage.csproj.CoreCompileInputs.cache
+C:\Users\lilia\source\repos\PluginUsage\obj\Debug\PluginUsage.dll
+C:\Users\lilia\source\repos\PluginUsage\obj\Debug\PluginUsage.pdb

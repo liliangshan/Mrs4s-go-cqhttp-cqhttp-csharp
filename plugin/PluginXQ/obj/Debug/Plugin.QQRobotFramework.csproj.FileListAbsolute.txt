@@ -1,0 +1,15 @@
+C:\Users\lilia\source\repos\Plugin.QQRobotFramework\bin\Debug\Plugin.QQRobotFramework.XQ.dll
+C:\Users\lilia\source\repos\Plugin.QQRobotFramework\bin\Debug\Plugin.QQRobotFramework.XQ.pdb
+C:\Users\lilia\source\repos\Plugin.QQRobotFramework\bin\Debug\QQRobotFramework.dll
+C:\Users\lilia\source\repos\Plugin.QQRobotFramework\bin\Debug\ThoughtWorks.QRCode.dll
+C:\Users\lilia\source\repos\Plugin.QQRobotFramework\bin\Debug\System.Data.SQLite.dll
+C:\Users\lilia\source\repos\Plugin.QQRobotFramework\bin\Debug\Newtonsoft.Json.dll
+C:\Users\lilia\source\repos\Plugin.QQRobotFramework\bin\Debug\QQRobotFramework.pdb
+C:\Users\lilia\source\repos\Plugin.QQRobotFramework\bin\Debug\QQRobotFramework.dll.config
+C:\Users\lilia\source\repos\Plugin.QQRobotFramework\bin\Debug\System.Data.SQLite.xml
+C:\Users\lilia\source\repos\Plugin.QQRobotFramework\bin\Debug\Newtonsoft.Json.xml
+C:\Users\lilia\source\repos\Plugin.QQRobotFramework\obj\Debug\Plugin.QQRobotFramework.csprojAssemblyReference.cache
+C:\Users\lilia\source\repos\Plugin.QQRobotFramework\obj\Debug\Plugin.QQRobotFramework.csproj.CoreCompileInputs.cache
+C:\Users\lilia\source\repos\Plugin.QQRobotFramework\obj\Debug\Plugin.QQRobotFramework.csproj.CopyComplete
+C:\Users\lilia\source\repos\Plugin.QQRobotFramework\obj\Debug\Plugin.QQRobotFramework.XQ.dll
+C:\Users\lilia\source\repos\Plugin.QQRobotFramework\obj\Debug\Plugin.QQRobotFramework.XQ.pdb

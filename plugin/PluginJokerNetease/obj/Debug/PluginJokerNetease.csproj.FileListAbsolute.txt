@@ -1,0 +1,5 @@
+C:\Users\lilia\source\repos\PluginJokerNetease\bin\Debug\PluginJokerNetease.dll
+C:\Users\lilia\source\repos\PluginJokerNetease\bin\Debug\PluginJokerNetease.pdb
+C:\Users\lilia\source\repos\PluginJokerNetease\obj\Debug\PluginJokerNetease.csproj.CoreCompileInputs.cache
+C:\Users\lilia\source\repos\PluginJokerNetease\obj\Debug\PluginJokerNetease.dll
+C:\Users\lilia\source\repos\PluginJokerNetease\obj\Debug\PluginJokerNetease.pdb

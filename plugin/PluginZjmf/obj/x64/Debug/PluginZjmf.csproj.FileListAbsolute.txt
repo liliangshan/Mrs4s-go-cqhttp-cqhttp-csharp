@@ -1,0 +1,7 @@
+C:\Users\lilia\source\repos\PluginZjmf\bin\x64\Debug\PluginZjmf.dll
+C:\Users\lilia\source\repos\PluginZjmf\bin\x64\Debug\PluginZjmf.pdb
+C:\Users\lilia\source\repos\PluginZjmf\obj\x64\Debug\PluginZjmf.Resource1.resources
+C:\Users\lilia\source\repos\PluginZjmf\obj\x64\Debug\PluginZjmf.csproj.GenerateResource.cache
+C:\Users\lilia\source\repos\PluginZjmf\obj\x64\Debug\PluginZjmf.csproj.CoreCompileInputs.cache
+C:\Users\lilia\source\repos\PluginZjmf\obj\x64\Debug\PluginZjmf.dll
+C:\Users\lilia\source\repos\PluginZjmf\obj\x64\Debug\PluginZjmf.pdb

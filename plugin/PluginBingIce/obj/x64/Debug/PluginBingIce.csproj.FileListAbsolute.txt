@@ -1,0 +1,10 @@
+C:\Users\lilia\source\repos\PluginBingIce\bin\x64\Debug\PluginBingIce.dll
+C:\Users\lilia\source\repos\PluginBingIce\bin\x64\Debug\PluginBingIce.pdb
+C:\Users\lilia\source\repos\PluginBingIce\obj\x64\Debug\PluginBingIce.Set.resources
+C:\Users\lilia\source\repos\PluginBingIce\obj\x64\Debug\PluginBingIce.csproj.GenerateResource.cache
+C:\Users\lilia\source\repos\PluginBingIce\obj\x64\Debug\PluginBingIce.csproj.CoreCompileInputs.cache
+C:\Users\lilia\source\repos\PluginBingIce\obj\x64\Debug\PluginBingIce.dll
+C:\Users\lilia\source\repos\PluginBingIce\obj\x64\Debug\PluginBingIce.pdb
+C:\Users\lilia\source\repos\PluginBingIce\bin\x64\Debug\System.Text.Encodings.Web.dll
+C:\Users\lilia\source\repos\PluginBingIce\bin\x64\Debug\System.Text.Encodings.Web.xml
+C:\Users\lilia\source\repos\PluginBingIce\obj\x64\Debug\PluginBingIce.csproj.CopyComplete

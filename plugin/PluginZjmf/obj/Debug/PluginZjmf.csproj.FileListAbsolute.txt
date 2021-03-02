@@ -1,0 +1,6 @@
+C:\Users\lilia\source\repos\PluginZjmf\bin\Debug\PluginZjmf.dll
+C:\Users\lilia\source\repos\PluginZjmf\bin\Debug\PluginZjmf.pdb
+C:\Users\lilia\source\repos\PluginZjmf\obj\Debug\PluginZjmf.csprojAssemblyReference.cache
+C:\Users\lilia\source\repos\PluginZjmf\obj\Debug\PluginZjmf.csproj.CoreCompileInputs.cache
+C:\Users\lilia\source\repos\PluginZjmf\obj\Debug\PluginZjmf.dll
+C:\Users\lilia\source\repos\PluginZjmf\obj\Debug\PluginZjmf.pdb
