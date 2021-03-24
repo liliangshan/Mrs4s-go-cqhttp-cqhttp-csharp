@@ -87,13 +87,20 @@ namespace PluginZjmf
                         }
                         Cluster.Send(e.group_id, "撤回"+ idx.Count + "条记录成功");
                     }
-                    return;
+                    if (e.message.IndexOf(Robot.id.ToString()) == -1)
+                    {
+                        return;
+                    }
+                    
                 }
                 if (e.message.IndexOf("CQ:redbag") > -1)
                 {
                     Cluster.DelMsg(e.message_id);
                     return;
                 }
+
+
+
                 if (Users.ContainsKey(e.user_id))
                 {
                     OnLog((DateTime.Now - Users[e.user_id]).TotalMinutes.ToString());
@@ -107,13 +114,16 @@ namespace PluginZjmf
                 while (match.Success)
                 {
                     string file = match.Groups["IMG"].ToString();
+                    
+                    Thread thread = new Thread(new ParameterizedThreadStart(AiQrCode));
+                    thread.Start(new object[] { file ,e});
                     message +=Cluster.Ocr(file);
                     match = match.NextMatch();
                 }
                 message = Regex.Replace(message, @"\[.+?\]", "");
-                if (message.IndexOf("thinklexceptionErrorException") > -1)
+                if (message.IndexOf("thinklexceptionErrorException") > -1 || message.Trim()== "500" || message.ToLower().IndexOf("http error 500") > -1)
                 {
-                    Cluster.Send(e.group_id, "[CQ:at,qq=" + e.user_id + "][CQ:image,file=file:///" + Robot.path + @"\PluginZjmf\1.png][CQ:image,file=file:///" + Robot.path + @"\PluginZjmf\2.png]");
+                    Cluster.Send(e.group_id, "安装过程中500错误解决方案\n[CQ:at,qq=" + e.user_id + "][CQ:image,file=file:///" + Robot.path + @"\PluginZjmf\1.png][CQ:image,file=file:///" + Robot.path + @"\PluginZjmf\2.png]");
                     return;
                 }
                 if (message.ToLower().IndexOf("ioncube") > -1)
@@ -205,11 +215,36 @@ namespace PluginZjmf
             }
         }
 
+        private void AiQrCode(object obj)
+        {
+            object[] o = (object[])obj;
+            string image = o[0].ToString();
+            RevMessageEvent e = (RevMessageEvent)o[1];
+            int i = 0;
+            
+            while (i < 10)
+            {
+                if (File.Exists(Robot.path+@"data\pic\"+image+".png"))
+                {
+                   string data= Cluster.QrCode(Robot.path + @"data\pic\" + image + ".png");
+                    if (data != "")
+                    {
+                        Cluster.DelMsg(e.message_id);
+                    }
+                  
+                    break;
+                }
+                
+                Thread.Sleep(5000);
+                i++;
+            }
+        }
+
         private string GetAccessToken()
         {
             WebClient web = new WebClient();
             web.Encoding = Encoding.UTF8;
-            string data = web.DownloadString("https://aip.baidubce.com/oauth/2.0/token?grant_type=client_credentials&client_id=jNxCRGAGScaZkSAaBL6LZbwX&client_secret=HkMqFc9ONxb1QXyvsjaZwuQ0WF0ZnKGm");
+            string data = web.DownloadString("https://aip.baidubce.com/oauth/2.0/token?grant_type=client_credentials&client_id=xxx&client_secret=xxx");
             BaiduToken token = JsonHelper.DeserializeObject<BaiduToken>(data);
             DateTime time = DateTime.Now.AddSeconds(token.expires_in-86400*3);
             TokenJson tokenJson = new TokenJson();
