@@ -50,7 +50,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="QQRobotFramework">
-      <HintPath>..\QQFramework\bin\x64\Debug\QQRobotFramework.dll</HintPath>
+      <HintPath>..\..\..\..\QQFramework\bin\x64\Debug\QQRobotFramework.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="System" />

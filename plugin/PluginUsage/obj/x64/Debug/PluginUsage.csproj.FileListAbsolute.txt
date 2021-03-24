@@ -3,3 +3,9 @@ C:\Users\lilia\source\repos\PluginUsage\bin\x64\Debug\PluginUsage.pdb
 C:\Users\lilia\source\repos\PluginUsage\obj\x64\Debug\PluginUsage.csproj.CoreCompileInputs.cache
 C:\Users\lilia\source\repos\PluginUsage\obj\x64\Debug\PluginUsage.dll
 C:\Users\lilia\source\repos\PluginUsage\obj\x64\Debug\PluginUsage.pdb
+C:\Users\lilia\source\repos\GitRepos\Mrs4s-go-cqhttp-csharp\plugin\PluginUsage\bin\x64\Debug\PluginUsage.dll
+C:\Users\lilia\source\repos\GitRepos\Mrs4s-go-cqhttp-csharp\plugin\PluginUsage\bin\x64\Debug\PluginUsage.pdb
+C:\Users\lilia\source\repos\GitRepos\Mrs4s-go-cqhttp-csharp\plugin\PluginUsage\obj\x64\Debug\PluginUsage.csproj.CoreCompileInputs.cache
+C:\Users\lilia\source\repos\GitRepos\Mrs4s-go-cqhttp-csharp\plugin\PluginUsage\obj\x64\Debug\PluginUsage.dll
+C:\Users\lilia\source\repos\GitRepos\Mrs4s-go-cqhttp-csharp\plugin\PluginUsage\obj\x64\Debug\PluginUsage.pdb
+C:\Users\lilia\source\repos\GitRepos\Mrs4s-go-cqhttp-csharp\plugin\PluginUsage\obj\x64\Debug\PluginUsage.csprojAssemblyReference.cache

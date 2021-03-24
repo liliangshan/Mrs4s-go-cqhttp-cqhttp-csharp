@@ -220,7 +220,7 @@ namespace PluginXQ
                     {
                         string Uri = url.ToString().Substring(1);
                         Uri = Uri.Substring(0, Uri.LastIndexOf("."));
-                        string VideoUrl = "https://h5wx.video.qq.com/getinfo?callback=j&platform=11001&charge=0&otype=json&ehost=https%3A%2F%2Fview.inews.qq.com&sphls=0&sb=1&nocache=0&_rnd=1613111258363&guid=1613111258363&appVer=V2.0Build9496&vids=" + Uri + "&defaultfmt=auto&&_qv_rmt=VEZfwXxMA12593l4u=&_qv_rmt2=48nK/4IM1535169lQ=&sdtfrom=v3110&_=1613111256247&jsonpCallback=j";
+                        string VideoUrl = "https://h5vv6.video.qq.com/getinfo?callback=j&platform=11001&charge=0&otype=json&ehost=https%3A%2F%2Fview.inews.qq.com&sphls=0&sb=1&nocache=0&_rnd=1613111258363&guid=1613111258363&appVer=V2.0Build9496&vids=" + Uri + "&defaultfmt=auto&&_qv_rmt=VEZfwXxMA12593l4u=&_qv_rmt2=48nK/4IM1535169lQ=&sdtfrom=v3110&_=1613111256247&jsonpCallback=j";
                         WebClient web = new WebClient();
                         web.Encoding = Encoding.UTF8;
                         string VideoInfp = web.DownloadString(VideoUrl);

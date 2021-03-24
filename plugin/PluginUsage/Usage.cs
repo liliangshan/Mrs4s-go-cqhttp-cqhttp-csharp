@@ -1,5 +1,6 @@
 ﻿using QQRobotFramework;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Management;
@@ -27,7 +28,7 @@ namespace PluginUsage
         public override string Start()
         {
             Event.OnMessage += Event_OnMessage;
-            return base.Start();
+            return "启动成功";
         }
         public override string Stop()
         {
@@ -36,7 +37,7 @@ namespace PluginUsage
         }
         private void Event_OnMessage(string sender, RevMessageEvent e)
         {
-          
+            OnLog(e.post_type+"|"+e.Exit.ToString()+"|"+e.message);
             if(e.post_type=="message" && e.message!=null && e.message.Length>2 && e.message.Substring(0,2) == "冰冰")
             {
                 if (Robot.Admin.Contains(e.user_id.ToString()))
@@ -109,6 +110,43 @@ namespace PluginUsage
                 MemoryInfo += "内存使用率" + decimal.Round((PhysicalMemory- availablebytes) *100/ PhysicalMemory) + "%";
             }
             if (MemoryInfo != "") SendData.Add(MemoryInfo);
+            int KbDiv = 1024;
+
+            try
+            {
+                decimal BotMemoryInfo = Robot.process.WorkingSet64;
+                if (BotMemoryInfo < 1024*1024)
+                {
+                    SendData.Add("Bot使用内存：" + decimal.Round((decimal)BotMemoryInfo / KbDiv,2).ToString() + "K");
+                }
+                else
+                {
+                    SendData.Add("Bot使用内存：" + decimal.Round((decimal)BotMemoryInfo / MbDiv,2).ToString() + "M");
+                }
+                
+            }
+            catch
+            {
+
+            }
+            try
+            {
+                decimal UIMemoryInfo = Process.GetCurrentProcess().WorkingSet64;
+                if (UIMemoryInfo < 1024 * 1024)
+                {
+                    SendData.Add("框架使用内存：" + decimal.Round((decimal)UIMemoryInfo / KbDiv,2).ToString() + "K");
+                }
+                else
+                {
+                    SendData.Add("框架使用内存：" + decimal.Round((decimal)UIMemoryInfo / MbDiv,2).ToString() + "M");
+                }
+                
+            }
+            catch
+            {
+
+            }
+
             DriveInfo[] allDirves = DriveInfo.GetDrives();
          
             int GbDiv = 1024 * 1024 * 1024;
@@ -123,6 +161,8 @@ namespace PluginUsage
 
 
             }
+
+            
             if (e.group_id > 0)
             {
                 Cluster.Send(e.group_id, string.Join("\n", SendData.ToArray()));

@@ -244,7 +244,7 @@ namespace PluginZjmf
         {
             WebClient web = new WebClient();
             web.Encoding = Encoding.UTF8;
-            string data = web.DownloadString("https://aip.baidubce.com/oauth/2.0/token?grant_type=client_credentials&client_id=xxx&client_secret=xxx");
+            string data = web.DownloadString("https://aip.baidubce.com/oauth/2.0/token?grant_type=client_credentials&client_id=client_id&client_secret=client_secret");
             BaiduToken token = JsonHelper.DeserializeObject<BaiduToken>(data);
             DateTime time = DateTime.Now.AddSeconds(token.expires_in-86400*3);
             TokenJson tokenJson = new TokenJson();

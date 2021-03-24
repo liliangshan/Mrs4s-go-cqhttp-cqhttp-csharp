@@ -1,0 +1,6 @@
+C:\Users\lilia\source\repos\PrivateMsgDoPlugin\bin\x64\Debug\PrivateMsgDoPlugin.dll
+C:\Users\lilia\source\repos\PrivateMsgDoPlugin\bin\x64\Debug\PrivateMsgDoPlugin.pdb
+C:\Users\lilia\source\repos\PrivateMsgDoPlugin\obj\x64\Debug\PrivateMsgDoPlugin.csproj.CoreCompileInputs.cache
+C:\Users\lilia\source\repos\PrivateMsgDoPlugin\obj\x64\Debug\PrivateMsgDoPlugin.dll
+C:\Users\lilia\source\repos\PrivateMsgDoPlugin\obj\x64\Debug\PrivateMsgDoPlugin.pdb
+C:\Users\lilia\source\repos\PrivateMsgDoPlugin\obj\x64\Debug\PrivateMsgDoPlugin.csprojAssemblyReference.cache

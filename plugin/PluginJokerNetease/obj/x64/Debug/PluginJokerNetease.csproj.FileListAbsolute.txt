@@ -5,3 +5,10 @@ C:\Users\lilia\source\repos\PluginJokerNetease\obj\x64\Debug\PluginJokerNetease.
 C:\Users\lilia\source\repos\PluginJokerNetease\obj\x64\Debug\PluginJokerNetease.pdb
 C:\Users\lilia\source\repos\PluginJokerNetease\obj\x64\Debug\PluginJokerNetease.Set.resources
 C:\Users\lilia\source\repos\PluginJokerNetease\obj\x64\Debug\PluginJokerNetease.csproj.GenerateResource.cache
+C:\Users\lilia\source\repos\GitRepos\Mrs4s-go-cqhttp-csharp\plugin\PluginJokerNetease\bin\x64\Debug\PluginJokerNetease.dll
+C:\Users\lilia\source\repos\GitRepos\Mrs4s-go-cqhttp-csharp\plugin\PluginJokerNetease\bin\x64\Debug\PluginJokerNetease.pdb
+C:\Users\lilia\source\repos\GitRepos\Mrs4s-go-cqhttp-csharp\plugin\PluginJokerNetease\obj\x64\Debug\PluginJokerNetease.Set.resources
+C:\Users\lilia\source\repos\GitRepos\Mrs4s-go-cqhttp-csharp\plugin\PluginJokerNetease\obj\x64\Debug\PluginJokerNetease.csproj.GenerateResource.cache
+C:\Users\lilia\source\repos\GitRepos\Mrs4s-go-cqhttp-csharp\plugin\PluginJokerNetease\obj\x64\Debug\PluginJokerNetease.csproj.CoreCompileInputs.cache
+C:\Users\lilia\source\repos\GitRepos\Mrs4s-go-cqhttp-csharp\plugin\PluginJokerNetease\obj\x64\Debug\PluginJokerNetease.dll
+C:\Users\lilia\source\repos\GitRepos\Mrs4s-go-cqhttp-csharp\plugin\PluginJokerNetease\obj\x64\Debug\PluginJokerNetease.pdb

@@ -1,0 +1,5 @@
+C:\Users\lilia\source\repos\AutoRuning\bin\Debug\AutoRuning.dll
+C:\Users\lilia\source\repos\AutoRuning\bin\Debug\AutoRuning.pdb
+C:\Users\lilia\source\repos\AutoRuning\obj\Debug\AutoRuning.csproj.CoreCompileInputs.cache
+C:\Users\lilia\source\repos\AutoRuning\obj\Debug\AutoRuning.dll
+C:\Users\lilia\source\repos\AutoRuning\obj\Debug\AutoRuning.pdb

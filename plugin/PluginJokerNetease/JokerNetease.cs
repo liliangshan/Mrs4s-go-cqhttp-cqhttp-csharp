@@ -168,8 +168,9 @@ namespace PluginJokerNetease
             reader.Close();
             return uri;
         }
-        private string GetVideo(RevMessageEvent e)
+        private void GetVideo(object obj)
         {
+            RevMessageEvent e = (RevMessageEvent)obj;
             string fname = "";
             try
             {
@@ -197,10 +198,12 @@ namespace PluginJokerNetease
                 string DownUrl = "";
                 if (id != "")
                 {
+                    OnLog("获取ID：" + id);
                     if (!File.Exists(Robot.path + @"JokerNetease\" + id + ".mp4"))
                     {
                         WebClient web = new WebClient();
                         web.Encoding = Encoding.UTF8;
+                        
                         if (id.Length > 7 && id.Substring(0, 7) == "QVideo-")
                         {
                             string vid = id.Replace("QVideo-", "");
@@ -211,7 +214,7 @@ namespace PluginJokerNetease
                             if (v.msg == null)
                             {
 
-                                OnLog("获取地址成功");
+                               
                                 vi[] vData = v.vl.vi;
                                 foreach (vi vv in vData)
                                 {
@@ -226,7 +229,8 @@ namespace PluginJokerNetease
                             }
                             else
                             {
-                                return "";
+                                OnLog("获取地址失败："+ VideoInfp);
+                                return;
                             }
 
                         }
@@ -290,16 +294,34 @@ namespace PluginJokerNetease
                         fname = Robot.path + @"JokerNetease\" + id + ".mp4";
                     }
                 }
+                else
+                {
+                    OnLog("获取ID："+ command.CommandText);
+                }
             }
             catch(Exception ex)
             {
                 OnLog(ex.Message);
             }
 
-            
 
+            string Video = fname;
+            if (Video != "")
+            {
+                if (e.message_type == "private")
+                {
+                    Friend.Send(e.user_id, "[CQ:video,file=file:///" + Video + "]");
+                }
+                if (e.message_type == "group" && e.group_id > 0)
+                {
+                    Cluster.Send(e.group_id, "[CQ:video,file=file:///" + Video + "]");
+                }
 
-            return fname;
+            }
+            else
+            {
+                OnLog("获取视频失败");
+            }
         }
         private void Event_OnFriend(string sender, RevMessageEvent e)
         {
@@ -310,7 +332,7 @@ namespace PluginJokerNetease
                 {
                     if(e.message != null && e.group_id > 0)
                     {
-                        if ( (e.message == "开启" + this.PluginName || e.message == "关闭" + this.PluginName) && Robot.Admin.Contains(e.user_id.ToString()))
+                        if ( (e.message == "开启" + this.PluginName || e.message == "关闭" + this.PluginName) &&  (Robot.Admin.Contains(e.user_id.ToString())||(e.sender!=null&&e.sender.role!=null&&e.sender.role== "owner")) )
                         {
                             OnLog(e.message);
                             e.Exit = true;
@@ -373,7 +395,9 @@ namespace PluginJokerNetease
                             command.ExecuteNonQuery();
                         }
                         OnLog("正在获取视频");
-                        string Video = GetVideo(e);
+                        Thread thread = new Thread(new ParameterizedThreadStart(GetVideo));
+                        thread.Start(e);
+                        /*string Video = GetVideo(e);
                         if (Video != "")
                         {
                             if(e.message_type == "private")
@@ -389,7 +413,7 @@ namespace PluginJokerNetease
                         else
                         {
                             OnLog("获取视频失败");
-                        }
+                        }*/
 
                     }
                     

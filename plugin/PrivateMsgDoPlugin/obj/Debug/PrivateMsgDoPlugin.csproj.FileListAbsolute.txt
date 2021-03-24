@@ -1,0 +1,5 @@
+C:\Users\lilia\source\repos\PrivateMsgDoPlugin\bin\Debug\PrivateMsgDoPlugin.dll
+C:\Users\lilia\source\repos\PrivateMsgDoPlugin\bin\Debug\PrivateMsgDoPlugin.pdb
+C:\Users\lilia\source\repos\PrivateMsgDoPlugin\obj\Debug\PrivateMsgDoPlugin.csproj.CoreCompileInputs.cache
+C:\Users\lilia\source\repos\PrivateMsgDoPlugin\obj\Debug\PrivateMsgDoPlugin.dll
+C:\Users\lilia\source\repos\PrivateMsgDoPlugin\obj\Debug\PrivateMsgDoPlugin.pdb

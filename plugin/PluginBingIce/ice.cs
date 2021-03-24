@@ -14,14 +14,17 @@ namespace PluginBingIce
     public class ice:Plugin
     {
         public string cookie = "";
-        public string referer = "";
-        public string messageUrl = "";
+        public string referer = "https://m.weibo.cn/msg/chat?uid=5175429989&nick=%E5%B0%8F%E5%86%B0&verified_type=0&send_from=user_profile&ext=%7B%22mark%22%3Anull%7D&luicode=10000011&lfid=1005055175429989";
+        public string messageUrl = "https://m.weibo.cn/msg/messages?uid=5175429989&page=1";
         public string st = "";
         public string aid = "";
         public string ak = "";
+        public string IceOpen = "";
         public string QcloudBotId = "";
+        public string tk = "";
+        public string WebCookie = "";
         List<string> TxtAi = new List<string>();
-        List<string> PluginType = new List<string>();
+        public List<string> PluginType = new List<string>();
         int isRev = 0;
       
         public ice()
@@ -42,21 +45,13 @@ namespace PluginBingIce
 
         internal void SetDefault()
         {
-            if (File.Exists(Robot.path + @"PluginBingIce\cookie.plugin"))
+            if (File.Exists(Robot.path + @"PluginBingIce\cookie.txt"))
             {
-                cookie = File.ReadAllText(Robot.path + @"PluginBingIce\cookie.plugin");
+                cookie = File.ReadAllText(Robot.path + @"PluginBingIce\cookie.txt");
             }
-            if (File.Exists(Robot.path + @"PluginBingIce\referer.plugin"))
+            if (File.Exists(Robot.path + @"PluginBingIce\ice.plugin"))
             {
-                referer = File.ReadAllText(Robot.path + @"PluginBingIce\referer.plugin");
-            }
-            if (File.Exists(Robot.path + @"PluginBingIce\messageUrl.plugin"))
-            {
-                messageUrl = File.ReadAllText(Robot.path + @"PluginBingIce\messageUrl.plugin");
-            }
-            if (File.Exists(Robot.path + @"PluginBingIce\st.plugin"))
-            {
-                st = File.ReadAllText(Robot.path + @"PluginBingIce\st.plugin");
+                IceOpen = File.ReadAllText(Robot.path + @"PluginBingIce\ice.plugin");
             }
             if (File.Exists(Robot.path + @"PluginBingIce\txtai.plugin"))
             {
@@ -75,13 +70,20 @@ namespace PluginBingIce
                 QcloudBotId = File.ReadAllText(Robot.path + @"PluginBingIce\QcloudBotId.plugin");
             }
             PluginType.Clear();
-            if (cookie != "" && referer != "" && messageUrl != "" && st != "")
+
+            
+
+            if (cookie != "" && IceOpen == "yes")
             {
                 PluginType.Add("微软小冰");
             }
             if (aid != "" && ak != "" && QcloudBotId!="")
             {
                 PluginType.Add("腾讯小冰");
+            }
+            if (PluginType.Count == 0)
+            {
+                ShowForm();
             }
         }
 
@@ -97,9 +99,13 @@ namespace PluginBingIce
         }
 
         
-
+        
         public string iceSend(string message, RevMessageEvent e=null)
         {
+            if (WebCookie == "")
+            {
+                getCookieList();
+            }
             string rev = "";
             if (message.Trim() != "")
             {
@@ -112,7 +118,7 @@ namespace PluginBingIce
                     web.Headers.Add("User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 13_2_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Mobile/15E148 Safari/604.1 Edg/88.0.4324.182");
                     web.Headers.Add("referer: "+ referer);
                     web.Headers.Add("content-type: application/x-www-form-urlencoded");
-                    web.Headers.Add("Cookie: " + cookie);
+                    web.Headers.Add("Cookie: " + WebCookie);
                     string data = web.UploadString("https://m.weibo.cn/msgDeal/sendMsg?", st+System.Web.HttpUtility.UrlEncode(message));
                     
                     try
@@ -133,7 +139,7 @@ namespace PluginBingIce
                                 client.Headers.Add("User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 13_2_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Mobile/15E148 Safari/604.1 Edg/88.0.4324.182");
                                // client.Headers.Add("referer: " + referer);
                                 
-                                client.Headers.Add("Cookie: " + cookie);
+                                client.Headers.Add("Cookie: " + WebCookie);
                                 string r = client.DownloadString(messageUrl);
                                
                                 try
@@ -177,11 +183,19 @@ namespace PluginBingIce
                         }
                         else
                         {
+                            OnLog(data);
                             if (e != null)
                             {
                                 Cluster.Send(e.group_id, "提交数据失败：" + data);
                             }
-                            OnLog(data);
+                            if(data.IndexOf("Tk err") > -1)
+                            {
+                                OnLog("原参数：" + st);
+                                rev = "小冰正在设置参数，请等待设置完成";
+                                SetTk();
+                                OnLog("参数设置完成："+ st);
+                            }
+                            
                         }
                     }
                     catch(Exception ex)
@@ -214,12 +228,58 @@ namespace PluginBingIce
             isRev = 0;
             return rev;
         }
+
+        private void getCookieList()
+        {
+            SetCookie.cookies = JsonHelper.DeserializeObject<CookieData[]>(cookie).ToList<CookieData>();
+            List<string> WCookie = new List<string>();
+            foreach (CookieData c in SetCookie.cookies)
+            {
+                WCookie.Add(c.Name + "=" + c.Value);
+            }
+            WebCookie = string.Join("; ", WCookie.ToArray());
+        }
+
+        internal void SetTk()
+        {
+            if (File.Exists(Robot.path + @"PluginBingIce\cookie.txt"))
+            {
+
+                if (WebCookie == "")
+                {
+                    getCookieList();
+                }
+                WebClient client = new WebClient();
+                client.Encoding = Encoding.UTF8;
+                client.Headers.Add("User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 13_2_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Mobile/15E148 Safari/604.1 Edg/88.0.4324.182");
+                // client.Headers.Add("referer: " + referer);
+              
+                client.Headers.Add("Cookie: " + WebCookie);
+                string r = client.DownloadString("https://m.weibo.cn/msg/chat?uid=5175429989&nick=%E5%B0%8F%E5%86%B0&verified_type=0");
+                string tkr = new Regex(@"""st"":""(?<ticket>[\s\S]*?)""", RegexOptions.IgnoreCase).Match(r).Groups["ticket"].Value;
+                if (tkr != "")
+                {
+                    st = "fileId=null&uid=5175429989&st=" + tkr + "&content=";
+                    OnLog("获取TK成功："+tkr);
+                }
+                else
+                {
+                    OnLog("获取TK失败：" + r);
+                }
+                
+            }
+            
+        }
+
         private void Event_OnMessage(string sender, RevMessageEvent e)
         {
-            
+            if (st == "")
+            {
+                SetTk();
+            }
             if(e.post_type == "message" && e.message_type == "group" && e.group_id > 0 && e.message!=null && (e.message=="开启小冰审核"|| e.message == "关闭小冰审核" || (e.message.Length>5 && e.message.Substring(0,5)== "开启小冰 ") || e.message=="开启小冰"|| e.message =="关闭小冰" || e.message == "小冰"))
             {
-                if (Robot.Admin.Contains(e.user_id.ToString()))
+                if (Robot.Admin.Contains(e.user_id.ToString()) || (e.sender != null && e.sender.role != null && e.sender.role == "owner"))
                 {
                     e.Exit = true;
                     if(e.message == "开启小冰")
@@ -331,6 +391,7 @@ namespace PluginBingIce
                         }
                         if (rev != "")
                         {
+                           
                             Cluster.Send(e.group_id, rev);
                         }
                     }
@@ -468,7 +529,6 @@ namespace PluginBingIce
     public class TextProcessResponse
     {
 
-
         public BotTextResponse Response { get; set; }
        
     }
@@ -492,5 +552,19 @@ namespace PluginBingIce
     public class BotErrorResponse
     {
         public string Message { get; set; }
+    }
+    public class CookieData
+    {
+        public string Domain { get; set; }
+        public string Name { get; set; }
+        public string Value { get; set; }
+        public string Expires { get; set; }
+    }
+    public class SetCookie
+    {
+        public static ice Plugin { get; set; }
+       
+        public static List<CookieData> cookies = new List<CookieData>();
+        
     }
 }

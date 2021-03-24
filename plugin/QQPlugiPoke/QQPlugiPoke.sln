@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30711.63
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QQPlugiPoke", "QQPlugiPoke.csproj", "{1C5F6154-D93D-4CA5-9576-F1B77B5C8957}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|x64 = Debug|x64
+		Release|Any CPU = Release|Any CPU
+		Release|x64 = Release|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1C5F6154-D93D-4CA5-9576-F1B77B5C8957}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1C5F6154-D93D-4CA5-9576-F1B77B5C8957}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1C5F6154-D93D-4CA5-9576-F1B77B5C8957}.Debug|x64.ActiveCfg = Debug|x64
+		{1C5F6154-D93D-4CA5-9576-F1B77B5C8957}.Debug|x64.Build.0 = Debug|x64
+		{1C5F6154-D93D-4CA5-9576-F1B77B5C8957}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1C5F6154-D93D-4CA5-9576-F1B77B5C8957}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1C5F6154-D93D-4CA5-9576-F1B77B5C8957}.Release|x64.ActiveCfg = Release|x64
+		{1C5F6154-D93D-4CA5-9576-F1B77B5C8957}.Release|x64.Build.0 = Release|x64
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {53288647-DE71-4116-9AAA-282459C96872}
+	EndGlobalSection
+EndGlobal
